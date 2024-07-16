@@ -1,3 +1,4 @@
+import 'package:first_app/screens/home_screen.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -9,16 +10,38 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
+  // list is iterating using index
+  final appScreens = [
+    const HomeScreen(),
+    const Center(child: Text("Search")),
+    const Center(child: Text("Ticket")),
+    const Center(child: Text("Profile")),
+  ];
+
+  //change our index for bottom navbar
+
+  // ignore: unused_field
+  int _selectedIndex = 0;
+
+  // ignore: unused_element
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+    
+    // print("the selected index is $_selectedIndex");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("My tickets"),
       ),
-      body: const Center(
-        child: Text("Ticket Info"),
-      ),
+      body: appScreens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
         selectedItemColor: Colors.blueGrey,
         unselectedItemColor: const Color(0xFF526400),
         showSelectedLabels: false,
@@ -28,7 +51,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
               activeIcon: Icon(FluentSystemIcons.ic_fluent_home_add_filled),
               label: "Home"),
           BottomNavigationBarItem(
-              icon: Icon(FluentSystemIcons.ic_fluent_search_info_regular),
+              icon: Icon(FluentSystemIcons.ic_fluent_search_regular),
               activeIcon: Icon(FluentSystemIcons.ic_fluent_search_filled),
               label: "search"),
           BottomNavigationBarItem(
@@ -36,9 +59,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
               activeIcon: Icon(FluentSystemIcons.ic_fluent_ticket_filled),
               label: "ticket"),
           BottomNavigationBarItem(
-              icon: Icon(FluentSystemIcons.ic_fluent_person_accounts_regular),
+              icon: Icon(FluentSystemIcons.ic_fluent_person_regular),
               activeIcon:
-                  Icon(FluentSystemIcons.ic_fluent_person_accounts_filled),
+                  Icon(FluentSystemIcons.ic_fluent_person_filled),
               label: "profile"),
         ],
       ),
