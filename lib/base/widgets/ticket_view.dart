@@ -6,10 +6,11 @@ import 'package:first_app/base/widgets/big_dot.dart';
 import 'package:first_app/base/widgets/textstyle_forth.dart';
 import 'package:first_app/base/widgets/textsytle_third.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class TicketView extends StatelessWidget {
-  const TicketView({super.key});
+  final Map<String, dynamic> ticket;
+  final bool wholeScreen;
+  const TicketView({super.key, required this.ticket,  this.wholeScreen=false});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class TicketView extends StatelessWidget {
       width: size.width * 0.85,
       height: 189,
       child: Container(
-        margin: const EdgeInsets.only(right: 16),
+        margin:  EdgeInsets.only(right: wholeScreen==true?0:16),
         child: Column(
           children: [
             //blue part of the ticket
@@ -34,8 +35,8 @@ class TicketView extends StatelessWidget {
                   //show departure and destination with icons
                   Row(
                     children: [
-                      const TextStyleThird(
-                        text: "Hre",
+                      TextStyleThird(
+                        text: ticket["from"]["code"],
                       ),
                       Expanded(child: Container()),
                       const BigDot(),
@@ -60,7 +61,7 @@ class TicketView extends StatelessWidget {
                       )),
                       const BigDot(),
                       Expanded(child: Container()),
-                      const TextStyleThird(text: "Mtre"),
+                      TextStyleThird(text: ticket["to"]["code"]),
                     ],
                   ),
                   //show departure and destination with icons
@@ -70,20 +71,20 @@ class TicketView extends StatelessWidget {
 
                   Row(
                     children: [
-                      const SizedBox(
+                      SizedBox(
                         width: 100,
-                        child: TextStyleForth(text: "Mtre"),
+                        child: TextStyleForth(text: ticket["from"]["name"]),
                       ),
                       Expanded(child: Container()),
-                      const SizedBox(
+                      SizedBox(
                         width: 100,
-                        child: TextStyleForth(text: "1h 30m"),
+                        child: TextStyleForth(text: ticket["flying_time"]),
                       ),
                       Expanded(child: Container()),
-                      const SizedBox(
+                      SizedBox(
                         width: 100,
                         child: TextStyleForth(
-                          text: "1h 30m",
+                          text: ticket["to"]["name"],
                           align: TextAlign.end,
                         ),
                       )
@@ -121,31 +122,31 @@ class TicketView extends StatelessWidget {
                   borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(21),
                       bottomRight: Radius.circular(21))),
-              child: const Column(
+              child: Column(
                 children: [
                   //show departure and destination with icons
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       AppLayoutText(
-                        topText: "17 June",
+                        topText: ticket['date'],
                         bottomText: "Date",
                         alignment: CrossAxisAlignment.start,
                       ),
                       AppLayoutText(
-                        topText: "3rd",
+                        topText: ticket["departure_time"],
                         bottomText: "Chllnge dAY",
                         alignment: CrossAxisAlignment.center,
                       ),
                       AppLayoutText(
-                        topText: "3",
+                        topText: ticket["number"].toString(),
                         bottomText: "number",
                         alignment: CrossAxisAlignment.end,
                       ),
                     ],
                   ),
                   //show departure and destination with icons
-                  SizedBox(
+                  const SizedBox(
                     height: 3,
                   ),
                 ],

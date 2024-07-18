@@ -4,11 +4,14 @@ import 'package:flutter/material.dart';
 class AppDoubleText extends StatelessWidget {
   // ignore: use_super_parameters
   const AppDoubleText(
-      {Key? key, required this.bigText, required this.smallText})
+      {Key? key,
+      required this.bigText,
+      required this.smallText,
+      required this.func})
       : super(key: key);
   final String bigText;
   final String smallText;
-
+  final VoidCallback func;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -19,13 +22,13 @@ class AppDoubleText extends StatelessWidget {
           style: Appstyles.headLineStyle2,
         ),
         InkWell(
-          onTap: () {},
+          onTap: func,
           child: Text(
             smallText,
             style: Appstyles.textStyle.copyWith(color: Appstyles.primaryColor),
           ),
         )
-      ], 
+      ],
     );
   }
 }
