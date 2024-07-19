@@ -1,6 +1,6 @@
 import 'package:first_app/base/bottom_nav_bar.dart';
-import 'package:first_app/screens/all_hotels.dart';
-import 'package:first_app/screens/all_ticket.dart';
+import 'package:first_app/screens/search/home/all_hotels.dart';
+import 'package:first_app/screens/search/home/all_ticket.dart';
 import 'package:flutter/material.dart';
 
 void main() {

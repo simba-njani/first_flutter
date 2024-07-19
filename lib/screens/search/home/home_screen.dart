@@ -3,17 +3,16 @@ import 'package:first_app/base/res/styles/media.dart';
 import 'package:first_app/base/utils/app_json.dart';
 import 'package:first_app/base/widgets/app_double_text.dart';
 import 'package:first_app/base/widgets/ticket_view.dart';
-import 'package:first_app/screens/widgets/hotel.dart';
+import 'package:first_app/screens/search/home/widgets/hotel.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       backgroundColor: Appstyles.bgColor,
       //listview for scrollable effect
@@ -107,9 +106,7 @@ class HomeScreen extends StatelessWidget {
                       children: hotelList
                           .map((singleHotel) => Hotels(hotel: singleHotel))
                           .toList(),
-                    )
-                    
-                    ),
+                    )),
               ],
             ),
           ),

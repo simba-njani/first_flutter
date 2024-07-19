@@ -1,5 +1,5 @@
 import 'package:first_app/base/utils/app_json.dart';
-import 'package:first_app/screens/widgets/hotel.dart';
+import 'package:first_app/screens/search/home/widgets/hotel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
