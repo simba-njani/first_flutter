@@ -10,7 +10,8 @@ import 'package:flutter/material.dart';
 class TicketView extends StatelessWidget {
   final Map<String, dynamic> ticket;
   final bool wholeScreen;
-  const TicketView({super.key, required this.ticket,  this.wholeScreen=false});
+  final bool? isColor;
+  const TicketView({super.key, required this.ticket, this.wholeScreen = false, this.isColor});
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +20,14 @@ class TicketView extends StatelessWidget {
       width: size.width * 0.85,
       height: 189,
       child: Container(
-        margin:  EdgeInsets.only(right: wholeScreen==true?0:16),
+        margin: EdgeInsets.only(right: wholeScreen == true ? 0 : 16),
         child: Column(
           children: [
             //blue part of the ticket
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                  color: Appstyles.ticketColorBlue,
+                  color: isColor==null?Appstyles.ticketColorBlue:Colors.white,
                   borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(21),
                       topRight: Radius.circular(21))),
