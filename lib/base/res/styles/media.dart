@@ -4,4 +4,5 @@ class AppMedia {
   static const logo = '$_baseImage/logo.png';
   static const hotel = '$_baseImage/';
   static const planeSit ='$_baseImage/plane_sit.jpg';
+  static const visa = '$_baseImage/visa_card.png';
 }

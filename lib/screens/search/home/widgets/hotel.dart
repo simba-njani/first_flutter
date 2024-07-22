@@ -12,7 +12,7 @@ class Hotels extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(right: 16),
       padding: const EdgeInsets.all(8.0),
-      width: size.width * 0.6,
+      width: size.width * 0.6, 
       height: 350,
       decoration: BoxDecoration(
         color: Appstyles.primaryColor,

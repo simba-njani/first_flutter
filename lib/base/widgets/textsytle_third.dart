@@ -3,13 +3,16 @@ import 'package:flutter/material.dart';
 
 class TextStyleThird extends StatelessWidget {
   final String text;
-  const TextStyleThird({super.key,required this.text});
+  final bool? isColor;
+  const TextStyleThird({super.key, required this.text, this.isColor});
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: Appstyles.headLineStyle3.copyWith(color: Colors.white),
+      style: isColor == null
+          ? Appstyles.headLineStyle3.copyWith(color: Colors.white)
+          : Appstyles.headLineStyle3,
     );
   }
 }

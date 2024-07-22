@@ -3,6 +3,7 @@ import 'package:first_app/base/res/styles/media.dart';
 import 'package:first_app/base/utils/app_json.dart';
 import 'package:first_app/base/widgets/app_double_text.dart';
 import 'package:first_app/base/widgets/ticket_view.dart';
+import 'package:first_app/routes/app_routes.dart';
 import 'package:first_app/screens/search/home/widgets/hotel.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
@@ -76,7 +77,7 @@ class HomeScreen extends StatelessWidget {
                   bigText: 'Upcoming Flights',
                   smallText: 'View All',
                   func: () {
-                    Navigator.pushNamed(context, "all_tickets");
+                    Navigator.pushNamed(context, AppRoutes.allTickets);
                   },
                 ),
                 const SizedBox(
@@ -97,7 +98,7 @@ class HomeScreen extends StatelessWidget {
                   bigText: 'Hotels',
                   smallText: 'View All',
                   func: () {
-                    Navigator.pushNamed(context, "all_hotels");
+                    Navigator.pushNamed(context, AppRoutes.allHotels);
                   },
                 ),
                 SingleChildScrollView(

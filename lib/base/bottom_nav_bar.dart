@@ -1,6 +1,6 @@
 import 'package:first_app/screens/search/home/home_screen.dart';
 import 'package:first_app/screens/search/search_screen.dart';
-import 'package:first_app/screens/search/ticket/ticket_view.dart';
+import 'package:first_app/screens/search/ticket/ticket_screen.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 
